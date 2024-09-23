@@ -1,15 +1,23 @@
 package server
 
 import (
+	"quizClone/config"
+
 	"github.com/gofiber/fiber/v2"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type Server struct {
-	app *fiber.App
-	db  *mongo.Database
+	config *config.Config
+}
+
+func NewServer(config *config.Config) *Server {
+	return &Server{
+		config: config,
+	}
 }
 
 func (s *Server) Run() {
+	app := fiber.New()
 
+	app.Listen(s.config.Port)
 }
