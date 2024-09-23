@@ -5,21 +5,12 @@ import (
 	"log"
 	"time"
 
-	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main() {
-	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello world")
-	})
-
-	setUp()
-
-	app.Listen(":3000")
 }
 
 func setUp() {
